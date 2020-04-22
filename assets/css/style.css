@@ -4,6 +4,42 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .container {
-    
+
+}
+
+.crystal-header {
+
+}
+
+.main-container {
+
+}
+
+ul {
+
+}
+
+li {
+
+}
+
+.rules {
+
+}
+
+.btn {
+
+}
+
+section {
+    float: left;
+    margin-left: 8px;
+    clear: both;
+    overflow: hidden;
+    width: 75%;
 }
