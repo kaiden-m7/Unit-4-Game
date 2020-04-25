@@ -1,4 +1,4 @@
-$(document).ready(function (){
+$(document).ready(function() {
     //global variables
     let wins = 0;
     let losses = 0;
@@ -17,6 +17,7 @@ $(document).ready(function (){
     crystalValues[3] = Math.floor(Math.random()*12+1);
     crystalValues[4] = Math.floor(Math.random()*12+1);
     console.log(crystalValues);
+    $('#scoreTotal').html(crystalValues);
 
     //reset after a win or loss 
     function reset () {
@@ -26,35 +27,44 @@ $(document).ready(function (){
         crystalValues = [];
     };
 
-    //functio for getting the computer number
-    function wins () {
+    //function for getting the computer number
+    function win () {
         wins++;
         $("#wins").html("Wins: " + wins);
         reset();
     };
 
     //function for not getting the computer number 
-    function losses () {
+    function loss () {
         losses++;
         $("#losses").html("Losses: " + losses);
         reset();
     };
 
+    //generating a total from values of gems
+    let gemNumber = function(min,max,cnt) {
+        let arr=[]
+        for(let i = min,j=0;i<= max; j++,i++)
+        arr[j]=i
+        arr.sort(function() {
+            return Math.floor((MAth.randmon()*3)-1)
+        });
+        return arr.splice(0,cnt)
+    };
+
     //allowing each crystal click to have a value and add to computer number for win or loss
-    $('.crystal-btn').on("click", function(){
+    $('.crystal-btn').on("click", function() {
         let crystalValue = parseInt($(this).val());
         score += crystalValue;
         console.log(score);
         $("#scoreTotal").html(score);
         if (score === randmonNumber) {
-            wins();
+            win();
         }
         else if (score > randmonNumber) {
-            losses();
+            loss();
         };
-    };
-
-
+    });
 
 
 
