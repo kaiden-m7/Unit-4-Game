@@ -11,11 +11,11 @@ $(document).ready(function() {
     console.log(randomNumber);
 
     //array for each crystal button values at random from 1-12
-    let crystalValues = {};
+    let crystalValues = [];
+    crystalValues[0] = Math.floor(Math.random()*12+1);
     crystalValues[1] = Math.floor(Math.random()*12+1);
     crystalValues[2] = Math.floor(Math.random()*12+1);
     crystalValues[3] = Math.floor(Math.random()*12+1);
-    crystalValues[4] = Math.floor(Math.random()*12+1);
     console.log(crystalValues);
 
 
@@ -80,17 +80,17 @@ $(document).ready(function() {
         console.log(score)
     })
     
-
+    //a reset to call after each time the user wins or losses, resetting all values of gems and choosing a new computer number
     let reset = function () {
         randomNumber = Math.floor(Math.random() * (120-19)) + 19;
         console.log(randomNumber);
         $("#cNumber").text(randomNumber);
         score = 0
         $("#scoreTotal").html(score);
+        crystalValues[0] = Math.floor(Math.random()*12+1);
         crystalValues[1] = Math.floor(Math.random()*12+1);
         crystalValues[2] = Math.floor(Math.random()*12+1);
         crystalValues[3] = Math.floor(Math.random()*12+1);
-        crystalValues[4] = Math.floor(Math.random()*12+1);
     };
 
 
